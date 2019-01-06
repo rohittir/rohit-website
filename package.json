@@ -5,10 +5,15 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-prod": "ng build --prod --base-href='/'",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "pre-commit": "ng lint"
+    "e2e": "ng e2e"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "ng lint"
+    }
   },
   "private": true,
   "dependencies": {
