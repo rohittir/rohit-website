@@ -1,0 +1,110 @@
+
+<!--
+    TEMPLATE
+    @author: Rohit Tirmanwar
+ -->
+
+<div *ngIf="jsonData">
+<div class="card top-animation" style="width:100%">
+    <div class="card-header">
+        <strong>About me!</strong>
+
+        <!-- Download Resume -->
+        <div class="btn-group float-right">
+            <a class="btn btn-primary" href="{{jsonData.userData.resume.pdf}}" target="_blank">Resume</a>
+            <!-- <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Download PDF</a>
+                <a class="dropdown-item" href="#">Download Word</a>
+            </div> -->
+        </div>
+    </div>
+    <div class="card-body">
+        <!-- <h5 class="card-title">About myself!</h5> -->
+        <p class="card-text" *ngFor="let absItem of profile.abstract">
+            {{absItem}}
+        </p>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-6" *ngFor="let school of schoolList; let i = index;">
+        <div class="card {{i%2==0? 'left-animation':'right-animation'}}" style="margin-bottom: 2%">
+            <div class="card-header">
+                <strong>{{school.course + ' in ' + school.major}}</strong>
+            </div>
+            <div class="card-body">
+                    <a href="{{school.websiteLink}}" target="_blank"><img class="float-right" style="height: 40px;" src="{{school.logo}}"></a>
+                <h5 class="card-title">{{school.name}}</h5>
+                <h6 class="card-title">{{school.address}}</h6>
+                <p class="card-text">{{school.startDate + ' - ' + school.endDate}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="card bottom-animation" >
+    <div class="card-header">
+        <strong>Experience</strong>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-4 col-md-4 col-lg-4" *ngFor="let industry of industryList">
+                <div class="card" style="margin-bottom: 5%">
+                    <div class="card-body">
+                        <a href="{{industry.websiteLink}}" target="_blank"><img class="float-right" style="max-height: 40px;" src="{{industry.logo}}"></a>
+                        <h5 class="card-title">{{industry.name}}</h5>
+                        <h6 class="card-text">{{industry.designation}}</h6>
+                        <p class="card-text">{{(industry.endDate)? industry.startDate + ' - ' + industry.endDate : 'Working since ' + industry.startDate}}</p>
+                        <h6 class="card-text">{{industry.address}}</h6>
+                        <a routerLink="/profile/{{industry.label}}" class="btn btn-primary">More Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br>
+<div class="card">
+    <div class="card-header">
+        <strong>Skills</strong>
+    </div>
+    <div class="card-body">
+        <h6 class="alert alert-primary" style="display: inline-block; margin: 2px" *ngFor="let skill of skillList">
+            <span>{{skill}}</span>
+        </h6>
+    </div>
+</div>
+
+<br>
+<div class="card">
+    <div class="card-header">
+        <strong>Academic Projects and Developments</strong>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6" *ngFor="let project of academicProjectList">
+                <div class="card" style="margin-bottom: 5%">
+                    <div class="card-body">
+                        <h5 class="card-title">{{project.name}}</h5>
+                        <h6 class="card-text">{{project.date}}</h6>
+                        <p class="card-text" *ngFor="let abItem of project.abstract">
+                            {{abItem}}
+                        </p>
+                        <a href="{{project.referenceLink}}" target="_blank" class="btn btn-primary">More Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br>
+<div class="mt-3">
+    Disclaimer: All images and logos used here are the property of respective organizations and the copyrights are reserved with them.
+</div>
+
+</div>

@@ -1,0 +1,42 @@
+
+
+
+
+<ng-container *ngIf="isActive">
+ <!-- Main Tabs -->
+ <!-- <ul class="nav nav-tabs card-header-tabs">
+    <li class="nav-item">
+      <a class="nav-link {{(selectedMainTab === 'Live Score')? 'active':''}}" style="cursor:pointer" (click)="selectedMainTab='Live Score'">Live Score</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{(selectedMainTab === 'IPL Standings')? 'active':''}}" style="cursor:pointer" (click)="selectedMainTab='IPL Standings'">IPL XI Stats</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link {{(selectedMainTab === 'Cricket News')? 'active':''}}" style="cursor:pointer" (click)="selectedMainTab='Cricket News'">Cricket News</a>
+    </li>
+  </ul> -->
+
+<div class="btn-group btn-group-md" role="group" aria-label="...">
+      <button type="button" class="btn {{(selectedMainTab === 'Live Score')? 'btn-primary':'btn-light'}}" (click)="selectedMainTab='Live Score'">Live Score</button>
+      <button type="button" class="btn {{(selectedMainTab === 'IPL Standings')? 'btn-primary':'btn-light'}}" (click)="selectedMainTab='IPL Standings'">IPL 2018</button>
+      <button type="button" class="btn {{(selectedMainTab === 'Cricket News')? 'btn-primary':'btn-light'}}" (click)="selectedMainTab='Cricket News'">Cricket News</button>
+</div>
+<hr>
+
+<app-cricket-news *ngIf="selectedMainTab === 'Cricket News'"></app-cricket-news>
+<app-cricket-live *ngIf="selectedMainTab === 'Live Score'"></app-cricket-live>
+<app-ipl-stats *ngIf="selectedMainTab === 'IPL Standings'"></app-ipl-stats>
+
+<div class="mt-3" style="text-align: center">
+    Disclaimer: This is not a commercial site. Thanks to
+    <a href="http://www.cricbuzz.com/" target="_blank">Cricbuzz</a>
+    <!-- <a href="https://cricscore-api.appspot.com" target="_blank">Cricscore</a> -->
+    and <a href="https://newsapi.org" target="_blank">News API</a> for providing this data.
+</div>
+</ng-container>
+
+<ng-container *ngIf="!isActive">
+    <div class="alert alert-primary" role="alert">
+        <h3><strong>This page is currently under maintainance. Please come back later.</strong></h3>
+    </div>
+</ng-container>

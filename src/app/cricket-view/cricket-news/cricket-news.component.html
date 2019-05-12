@@ -1,0 +1,38 @@
+
+
+
+
+<h4 *ngIf="!headlinesList">Loading...</h4>
+<ng-container *ngIf="headlinesList">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div class="card" *ngIf="currentHeadline" style="max-width: 700px; margin: auto">
+                <div class="card-body">
+                    <button class="btn btn-primary float-left" (click)="showPrevious()"><span class="fa fa-chevron-circle-left"></span> Previous</button>
+                    <span style="margin-left: 30%">{{showCurrentIndex()}}</span>
+                    <button class="btn btn-primary float-right" (click)="showNext()">Next <span class="fa fa-chevron-circle-right"></span></button>
+                    <br>
+                    <hr>
+                    <h5 class="card-title">{{currentHeadline.title}}</h5>
+                    <p class="card-text">{{currentHeadline.description}}</p>
+                    <p class="card-text text-muted">Published on: {{getDate(currentHeadline.publishedAt)}}</p>
+                    <p>For detailed information on this, please visit <a href="{{currentHeadline.url}}" target="_blank">espncricinfo.com</a></p>
+                </div>
+                <div>
+                    <img class="card-img-bottom" src="{{currentHeadline.urlToImage}}" alt="{{currentHeadline.title}}">
+                    <a class="carousel-control-prev" data-slide="prev" role="button" (click)="showPrevious()" style="cursor: pointer">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" data-slide="next" role="button" (click)="showNext()" style="cursor: pointer">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ng-container>
+
+
+

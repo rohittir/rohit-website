@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from './main/main.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { TimelinePageComponent } from './timeline-page/timeline-page.component';
+import { SearchPageComponent } from './search-page/search-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
   {
@@ -10,7 +13,23 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: MainComponent
+    component: HomePageComponent
+  },
+  {
+    path: 'profile',
+    component: ProfilePageComponent
+  },
+  {
+    path: 'timeline',
+    component: TimelinePageComponent
+  },
+  {
+    path: 'search',
+    component: SearchPageComponent
+  },
+  {
+    path: 'cricket',
+    loadChildren: './cricket-view/index#CricketModule'
   }
 ];
 

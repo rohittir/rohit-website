@@ -1,0 +1,28 @@
+
+
+
+<div class="row width-animation" >
+    <div class="col-12">
+        <ul class="timeline">
+            <li class="timeline-item" *ngFor="let timelineItem of userTimelineData?.timeline; let i = index" style="cursor: pointer">
+                <div class="timeline-badge {{showAlways[i]? 'primary':''}}" (click)="showAlways[i]=!showAlways[i]"></div>
+                <div class="timeline-panel {{i%2==0? 'left-animation':'right-animation'}} {{(showAlways[i])? 'timeline-panel-select':''}}">
+                    <div class="timeline-heading" (click)="showAlways[i]=!showAlways[i]">
+                        <h6 class="timeline-title hideshow">{{timelineItem.title}}</h6>
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{timelineItem.date}}</small></p>
+                    </div>
+                    <div class="timeline-body" *ngIf="showAlways[i]">
+                        <p>{{timelineItem.description}}</p>
+                        <p *ngFor="let link of timelineItem.links">
+                            Link to <a href="{{link.url}}" target="_blank">{{link.name}}</a>
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+
