@@ -6,9 +6,10 @@
 
 
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { LiveScoreService } from '../live-score.service';
+import { LiveScoreService } from '../services/live-score.service';
 import { ActivatedRoute } from '@angular/router';
 import { catchError } from 'rxjs/operators';
+import { CricBuzzDataService } from '../services/cricbuzz-data.service';
 
 @Component({
   selector: 'app-cricket-commentary',
@@ -27,7 +28,7 @@ export class CricketCommentaryComponent implements OnInit, OnDestroy {
     //
     // LIFECYCLE
     //
-    constructor(private _route: ActivatedRoute, private _liveScoreService: LiveScoreService) {
+    constructor(private _route: ActivatedRoute, public _cricbuzzDataService: CricBuzzDataService) {
 
     }
 
@@ -52,19 +53,21 @@ export class CricketCommentaryComponent implements OnInit, OnDestroy {
     }
 
     initData() {
-        if (this.matchId) {
+        // if (this.matchId) {
             // const convMatchId = this.matchId.replace(/:/g, '/');
             // const url = 'http://synd.cricbuzz.com/j2me/1.0/' + convMatchId;
-            this._liveScoreService.fetchMatchCommentary(this.matchId)
+            // this._liveScoreService.fetchMatchCommentary(this.matchId)
+            this._cricbuzzDataService.getMatchCommentary(this.matchId)
                 .pipe(
                     catchError((err: any) => {
                         console.error(err);
                         return err;
                     })
                 ).subscribe((res: any) => {
-                    this.selectedCommentary = res.mchDetails.match[0];
+                  console.error('ROHIT::commentary:::', res);
+                    // this.selectedCommentary = res.mchDetails.match[0];
                 });
-        }
+        // }
     }
 
     convertGMTtoLocalTime(gmtTime: string) {

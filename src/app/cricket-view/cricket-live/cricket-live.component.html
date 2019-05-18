@@ -1,12 +1,12 @@
 
-<ng-container *ngIf="!matchesList">
+<ng-container *ngIf="!liveCricketData">
     <div class="alert alert-primary" role="alert" style="text-align: center">
         <h6>Please wait while we fetch the latest scores...</h6>
     </div>
 </ng-container>
 
 
-<ng-container *ngIf="matchesList">
+<ng-container *ngIf="liveCricketData">
     <!-- <div class="alert alert-primary" role="alert">
         <strong>Live Cricket Score</strong>
         <button class="btn btn-primary btn-sm float-right" (click)="refresh()">
@@ -15,23 +15,34 @@
     </div> -->
 
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" *ngFor="let match of matchesList">
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" *ngFor="let match of liveCricketData">
             <!-- MatchesList -->
             <div class="card" style="margin-bottom: 5%; cursor: pointer" >
                 <div class="card-header">
-                    <strong>{{match.$.type}}: {{match.$.srs}} ({{match.$.mnum}})</strong>
+                    <strong>{{match.type}}: {{match.matchTitle}}</strong>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{match.$.mchDesc}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted" *ngFor="let state of match.state"> {{state.$.mchState}}: {{state.$.status}}</h6>
-                    <h6 *ngFor="let score of match.mscr" class="card-text">
+                    <h5 class="card-title">{{match.matchDesc}}</h5>
+                    <h6 class="card-title">{{match.venue.location}}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted"> {{match.status}}</h6>
+                    <!-- <h6 class="card-subtitle mb-2 text-muted"> {{match.team2.name}}: {{match.team2.status}}</h6> -->
+                    <!-- <h6 *ngFor="let inning of match.matchSummary.battingTeam.innings" class="card-text"> -->
                         <!-- <div class="row"> -->
                             <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" *ngIf="score.btTm[0]?.Inngs?.length > 0"> -->
                                     <!-- Batting Team Score -->
-                                <h6 class="card-text gap-bottom">
-                                    <span>{{score.btTm[0].$.sName}}: </span>
+                                <h6 class="card-text gap-bottom" *ngIf="match.matchSummary?.battingTeam">
+                                    <span>{{match.matchSummary.battingTeam.name}}: </span>
                                     <br>
-                                    <div *ngFor="let inn of score.btTm[0].Inngs">{{inn.$.desc}}: {{inn.$.r}}/{{inn.$.wkts}} ({{inn.$.ovrs}} Overs)</div>
+                                    <div *ngFor="let inn of match.matchSummary.battingTeam.innings; let i = index">
+                                        {{match.type === 'TEST' ? 'Inning' + (i+1) + ':' : ''}} {{inn.score}}/{{inn.wickets}} ({{inn.overs}} Overs)
+                                    </div>
+                                </h6>
+                                <h6 class="card-text gap-bottom" *ngIf="match.matchSummary?.bowlingTeam">
+                                    <span>{{match.matchSummary.bowlingTeam.name}}: </span>
+                                    <br>
+                                    <div *ngFor="let inn of match.matchSummary.bowlingTeam.innings; let i = index">
+                                        {{match.type === 'TEST' ? 'Inning' + (i+1) + ':' : ''}} {{inn.score}}/{{inn.wickets}} ({{inn.overs}} Overs)
+                                    </div>
                                 </h6>
                             <!-- </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" *ngIf="score.blgTm[0]?.Inngs?.length > 0">
@@ -43,15 +54,15 @@
                                 </h6>
                             </div>
                         </div> -->
-                    </h6>
-                    <h6 *ngIf="match.$?.grnd" class="card-text">
+                    <!-- </h6> -->
+                    <!-- <h6 *ngIf="match.$?.grnd" class="card-text">
                         {{match.$.grnd}}
                         <span *ngIf="match.$?.vcity">, {{match.$.vcity}}</span>
                         <span *ngIf="match.$?.vcountry">, {{match.$.vcountry}}</span>
-                    </h6>
-                    <button *ngIf="match.$.datapath" class="btn btn-primary btn-sm float-right" (click)="showMatchInfo(match)">
+                    </h6> -->
+                    <button *ngIf="match?.matchId" class="btn btn-primary btn-sm float-right" (click)="showMatchInfo(match)">
                         Show Commentary
-                        <!-- <span class="fa fa-chevron-circle-right"></span> -->
+                        <span class="fa fa-chevron-circle-right"></span>
                     </button>
 
                 </div>

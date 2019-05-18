@@ -7,7 +7,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { catchError } from 'rxjs/operators';
-import { LiveScoreService } from '../live-score.service';
+import { LiveScoreService } from '../services/live-score.service';
 
 @Component({
   selector: 'app-cricket-news',

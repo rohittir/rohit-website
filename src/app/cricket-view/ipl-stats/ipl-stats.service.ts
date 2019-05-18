@@ -9,17 +9,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-
-import { ServerConfigService } from '../../services/server-config.service';
-
+import { SERVER_CONFIG } from 'application-config/server-config';
 
 @Injectable()
 export class IPLStatsService {
 
-    constructor(
-        private _http: HttpClient,
-        private _serverConfigService: ServerConfigService) {
-    }
+    private serverUrl = SERVER_CONFIG().host + ':' + SERVER_CONFIG().port;
+
+    constructor(private _http: HttpClient) {}
 
     //
     // OPERATIONS
@@ -27,13 +24,13 @@ export class IPLStatsService {
 
     // fetch the ipl stats data
     public fetchIPLStats(index): Observable<any> {
-        return this._http.get(this._serverConfigService.serverUrl
+        return this._http.get(this.serverUrl
             + '/api/cricket/ipl2018/stats/' + index);
     }
 
      // fetch the ipl schedule
      public fetchIPLSchedule(): Observable<any> {
-        return this._http.get(this._serverConfigService.serverUrl
+        return this._http.get(this.serverUrl
             + '/api/cricket/ipl2018/schedule/');
     }
 

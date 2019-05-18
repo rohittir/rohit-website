@@ -7,7 +7,7 @@
 
 
 import { Component, OnInit } from '@angular/core';
-import { LiveScoreService } from './live-score.service';
+import { LiveScoreService } from './services/live-score.service';
 
 @Component({
   selector: 'app-cricket-view',
@@ -23,7 +23,7 @@ export class CricketViewComponent implements OnInit {
 
   selectedMainTab = 'Live Score';
   iplStandings = null;
-  isActive = false;
+  isActive = true;
 
   constructor(public _liveScoreService: LiveScoreService) { }
 
