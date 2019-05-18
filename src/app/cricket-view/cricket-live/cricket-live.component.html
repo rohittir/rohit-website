@@ -15,14 +15,14 @@
     </div> -->
 
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" *ngFor="let match of liveCricketData">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let match of liveCricketData">
             <!-- MatchesList -->
-            <div class="card" style="margin-bottom: 5%; cursor: pointer" >
+            <div class="card" style="margin-bottom: 5%; cursor: pointer" (click)="showMatchInfo(match)">
                 <div class="card-header">
-                    <strong>{{match.type}}: {{match.matchTitle}}</strong>
+                    <strong>{{match.matchDesc}}: {{match.series.name}}</strong>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{match.matchDesc}}</h5>
+                    <h5 class="card-title">{{match.matchTitle}}</h5>
                     <h6 class="card-title">{{match.venue.location}}</h6>
                     <h6 class="card-subtitle mb-2 text-muted"> {{match.status}}</h6>
                     <!-- <h6 class="card-subtitle mb-2 text-muted"> {{match.team2.name}}: {{match.team2.status}}</h6> -->
@@ -60,10 +60,10 @@
                         <span *ngIf="match.$?.vcity">, {{match.$.vcity}}</span>
                         <span *ngIf="match.$?.vcountry">, {{match.$.vcountry}}</span>
                     </h6> -->
-                    <button *ngIf="match?.matchId" class="btn btn-primary btn-sm float-right" (click)="showMatchInfo(match)">
+                    <!-- <button *ngIf="match?.matchId" class="btn btn-primary btn-sm float-right" (click)="showMatchInfo(match)">
                         Show Commentary
                         <span class="fa fa-chevron-circle-right"></span>
-                    </button>
+                    </button> -->
 
                 </div>
             </div>

@@ -6,8 +6,8 @@
 
 
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { catchError } from 'rxjs/operators';
-import { LiveScoreService } from '../services/live-score.service';
+import { combineLatest } from 'rxjs/operators';
+import { CricBuzzDataService } from '../services/cricbuzz-data.service';
 
 @Component({
   selector: 'app-cricket-scorecard',
@@ -18,20 +18,20 @@ export class CricketScorecardComponent implements OnInit, OnChanges {
     //
     // INPUTS
     //
-    @Input() scorecardURL = null;
-    @Input() isSquad = false;
+    @Input() public matchId = null;
+    @Input() public isSquad = false;
 
     //
     // PROPERTIES
     //
-    scoreCard = null;
-    playingSquad = {};
-    substituteSquad = {};
+    public scoreCard = null;
+    public players = null;
+    public teamSquads = [];
 
     //
     // LIFECYCLE
     //
-    constructor(private _liveScoreService: LiveScoreService) {
+    constructor(public _cricbuzzDataService: CricBuzzDataService) {
 
     }
 
@@ -44,85 +44,76 @@ export class CricketScorecardComponent implements OnInit, OnChanges {
         this.initData();
     }
 
-    initData() {
-        if (!this.scorecardURL) {
+    private initData() {
+        if (!this.matchId) {
             return;
         }
 
-        this._liveScoreService.fetchMatchScorecard(this.scorecardURL)
+        this._cricbuzzDataService.getMatchScorecard(this.matchId)
         .pipe(
-            catchError((err: any) => {
-                console.error(err);
-                return err;
-            })
-        ).subscribe((res: any) => {
-            this.scoreCard = res.scrCard;
+            combineLatest(
+                this._cricbuzzDataService.getMatchPlayers(this.matchId)
+            )
+        )
+        .subscribe(([scorecard, players]) => {
+            this.scoreCard = scorecard;
+            this.players = players;
             this.initSquad();
-            // console.log(this.scoreCard);
+            // console.error('ROHIT:::scorecard', scorecard, players);
         });
     }
 
-    initSquad() {
-        if (this.scoreCard && this.scoreCard.squads[0].Team) {
-            this.playingSquad = {};
-            this.substituteSquad = {};
-            for (let i = 0; i < this.scoreCard.squads[0].Team.length; i++) {
-                const name = this.scoreCard.squads[0].Team[i].$.Name;
-                const mem = this.scoreCard.squads[0].Team[i].$.mem;
-                this.playingSquad[name] = this.getTeamSquad(mem);
-                this.substituteSquad[name] = this.getTeamSubs(mem);
+    private initSquad() {
+        if (this.players.team1 && this.players.team2) {
+           this.teamSquads = [{
+               teamName : this.players.team1.name,
+               teamSquad : [],
+               teamBench: []
+            }, {
+                teamName : this.players.team2.name,
+                teamSquad : [],
+                teamBench: []
+            }];
+            if (this.players.team1.squad) {
+                for (let i = 0; i < this.players.team1.squad.length; i++) {
+                    this.teamSquads[0].teamSquad.push(this.getPlayerName(this.players.team1.squad[i]));
+                }
             }
-        }
-
-    }
-
-    //
-    // OPERATIONS
-    //
-    getTeamSquad(teamSquad: string): Array<string> {
-        let players: Array<string> = [];
-        if (teamSquad) {
-            players = teamSquad.split(',');
-
-            if (players.length > 11) {
-                players.splice(11, players.length - 11);
+            if (this.players.team2.squad) {
+                for (let i = 0; i < this.players.team2.squad.length; i++) {
+                    this.teamSquads[1].teamSquad.push(this.getPlayerName(this.players.team2.squad[i]));
+                }
             }
-
-            for (let i = 0; i < players.length; i++) {
-                const index = players[i].lastIndexOf('(S)');
-                if (index >= 0) {
-                    players[i] = players[i].substring(0, index);
+            if (this.players.team1.squad_bench) {
+                for (let i = 0; i < this.players.team1.squad_bench.length; i++) {
+                    this.teamSquads[0].teamBench.push(this.getPlayerName(this.players.team1.squad_bench[i]));
+                }
+            }
+            if (this.players.team1.squad_bench) {
+                for (let i = 0; i < this.players.team2.squad_bench.length; i++) {
+                    this.teamSquads[1].teamBench.push(this.getPlayerName(this.players.team2.squad_bench[i]));
                 }
             }
         }
 
-        return players;
     }
 
-    getTeamSubs(teamSquad: string): Array<string> {
-        let players: Array<string> = [];
-        if (teamSquad) {
-            players = teamSquad.split(',');
-
-            if (players.length >= 11) {
-                players.splice(0, 11);
-            }
-
-            for (let i = 0; i < players.length; i++) {
-                const index = players[i].lastIndexOf('(S)');
-                if (index >= 0) {
-                    players[i] = players[i].substring(0, index);
-                }
+    public getPlayerName(playerId: string): string {
+        if (this.players && this.players.players) {
+            const player = this.players.players.find((pl: any) => {
+                return ('' + playerId === '' + pl.id);
+            });
+            if (player) {
+                return player.f_name + (player.role ? player.role : '');
             }
         }
-
-        return players;
+        return '';
     }
 
-    getStrikeRate(batsman) {
+    public getStrikeRate(batsman: any): string {
         if (batsman) {
-            const runs = parseInt(batsman.$.r, 10);
-            const balls = parseInt(batsman.$.b, 10);
+            const runs = parseInt(batsman.r, 10);
+            const balls = parseInt(batsman.b, 10);
 
             if (balls <= 0) {
                 return '-';
@@ -133,8 +124,19 @@ export class CricketScorecardComponent implements OnInit, OnChanges {
         }
     }
 
+    public getEconomyRate(bowler: any): string {
+        if (bowler) {
+            const runs = parseInt(bowler.r, 10);
+            const balls = (parseInt(bowler.o, 10) * 6) +
+                (+bowler.o % 1);
 
+            if (balls <= 0) {
+                return '-';
+            }
+
+            const rate = parseInt('' + ((runs / balls) * 6), 10);
+            return rate.toFixed(2);
+        }
+    }
 }
-
-
 

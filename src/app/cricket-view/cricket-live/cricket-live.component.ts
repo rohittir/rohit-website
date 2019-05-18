@@ -7,37 +7,40 @@
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { catchError } from 'rxjs/operators';
-import { LiveScoreService } from '../services/live-score.service';
 import { Router } from '@angular/router';
 import { CricBuzzDataService } from '../services/cricbuzz-data.service';
-import { LiveCricketDetails, MatchTypeDetails, PlayerDetails, MatchSummary, MatchDetails } from '../interfaces/cricket-live.interface';
+import {
+  MatchTypeDetails,
+  PlayerDetails,
+  MatchSummary,
+  MatchDetails
+} from '../interfaces/cricket-live.interface';
 
 @Component({
   selector: 'app-cricket-live',
   templateUrl: './cricket-live.component.html'
 })
 export class CricketLiveComponent implements OnInit, OnDestroy {
-
-
   //
   // PROPERTIES
   //
   public liveCricketData: MatchDetails[];
   public matchTypesData: MatchTypeDetails[];
 
-  matchesList = null;
-  liveMatchesList = [];
-  selectedMatchInfo = null;
-  showLive = false;
-  dataFetchInterval = null;
+  public matchesList = null;
+  public selectedMatchInfo = null;
+  public showLive = false;
+  public dataFetchInterval = null;
 
-  constructor(public _cricbuzzDataService: CricBuzzDataService, public _router: Router) { }
+  constructor(
+    public _cricbuzzDataService: CricBuzzDataService,
+    public _router: Router
+  ) { }
 
   ngOnInit() {
-    this.refresh();
-
+    this.refreshMatches();
     // refresh data in 1 min interval
-    this.dataFetchInterval = setInterval(this.refresh.bind(this), 60000);
+    this.dataFetchInterval = setInterval(this.refreshMatches.bind(this), 60000);
   }
 
   ngOnDestroy() {
@@ -50,11 +53,6 @@ export class CricketLiveComponent implements OnInit, OnDestroy {
   //
   // OPERATIONS
   //
-
-  refresh() {
-    this.refreshMatches();
-  }
-
   private refreshMatches() {
     // Fetch Live scores
     this._cricbuzzDataService.getAllMatches()
@@ -65,8 +63,7 @@ export class CricketLiveComponent implements OnInit, OnDestroy {
         })
       ).subscribe((res: any) => {
         this.mapApiDataToLiveData(res);
-        // this.matchesList = res.matches;
-        console.error('ROHIT:::matchesList:::', this.liveCricketData);
+        // console.error('ROHIT:::matchesList:::', this.liveCricketData);
     });
   }
 
@@ -195,37 +192,6 @@ export class CricketLiveComponent implements OnInit, OnDestroy {
       }
     });
     return data;
-  }
-
-  //
-  // LIVE Score From cricscore
-  //
-  refreshLiveScore() {
-
-    // this.liveMatchesList = [];
-    // this._liveScoreService.fetchLiveMatches()
-    //   .pipe(
-    //     catchError((err: any) => {
-    //       console.error(err);
-    //       return err;
-    //     })
-    //   ).subscribe((res: any) => {
-    //     const matches = res;
-
-    //     for (let i = 0; i < matches.length; i++) {
-    //       this._liveScoreService.fetchLiveScore(matches[i].id)
-    //         .pipe(
-    //           catchError((err: any) => {
-    //             console.error(err);
-    //             return err;
-    //           })
-    //         ).subscribe((match: any) => {
-    //           this.liveMatchesList.push(match[0]);
-    //         });
-    //     }
-
-    // });
-
   }
 
   //

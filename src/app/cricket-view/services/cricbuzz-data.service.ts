@@ -27,4 +27,10 @@ export class CricBuzzDataService {
     public getMatchCommentary(matchId: string): Observable<any> {
         return this._http.get(`${this.serverUrl}/api/cricbuzz/commentary/${matchId}`);
     }
+
+    public getMatchPlayers(matchId: string): Observable<any> {
+        return this._http.get(`${this.serverUrl}/api/cricbuzz/players/${matchId}`);
+    }
+
+
 }

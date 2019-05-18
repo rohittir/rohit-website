@@ -20,6 +20,17 @@ export class CricbuzzDataAPI {
 
         });
 
+        this.app.get('/api/cricbuzz/players/:matchid', function (req, res) {
+            try {
+                _this.processPlayersGetRequest(req, res);
+            } catch (e) {
+                console.error('Exception: ' + e);
+                res.status(500);
+                res.send(null);
+            }
+
+        });
+
         this.app.get('/api/cricbuzz/scorecard/:matchid', function (req, res) {
             try {
                 _this.processGetRequest(`http://mapps.cricbuzz.com/cbzios/match/${req.params.matchid}/scorecard`, req, res);
@@ -51,6 +62,31 @@ export class CricbuzzDataAPI {
                 res.send(null);
             }
 
+        });
+    }
+
+    private processPlayersGetRequest(req: any, res: any): void {
+        https.get('https://www.cricbuzz.com/match-api/livematches.json', (response) => {
+            var completeResponse = '';
+            response.on('data', function (chunk) {
+                completeResponse += chunk;
+            });
+            response.on('end', function () {
+                var data = JSON.parse(completeResponse);
+
+                if (data.matches) {
+                    console.log(req.params.matchid);
+                    console.log(data.matches);
+                    res.status(200);
+                    res.send(data.matches[req.params.matchid]);
+                } else {
+                    res.status(500);
+                    res.send(null);
+                }
+            })
+        }).on('error', function (err) {
+            res.status(500);
+            res.send(null);
         });
     }
 
