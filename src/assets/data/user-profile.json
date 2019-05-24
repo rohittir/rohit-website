@@ -21,7 +21,7 @@
             "abstract": [
                 "Hi there!! Thank you for your interest in my portfolio. I'm an experienced front-end developer, emphasized on Angular framework and other javascript libraries. I have been working on large software projects and software development teams for more than 7.5 years.",
                 "My experties in Angular has been developed by working on various projects including an online financial Robo investment product, where I have been working with Angular 4, and 6 with Typescript to design and develop a white-labelled front end platform which can be configured with customized portfolios, themes, and styles for different firms. I have also been using Redux for state management and GraphQL with Node.js middleware for efficient data transfer and communication between the front end and back end platform.",
-                "Having worked on various software projects, I have developed a strong framework design and development skills, along with being efficient with coding and creating reusable and modular components that help in improving scalability, efficiency and performance."
+                "Having worked on various software projects, I have developed a strong framework design and development skills, along with being efficient with coding and creating reusable and modular components that help in improving scalability, efficiency and performance of the application."
             ]
         },
 
@@ -151,7 +151,7 @@
                     "address": "Fairfax, VA",
                     "startDate": "January 2017",
                     "endDate": "May 2018",
-                    "designation": "Graduate Research Assistant",
+                    "designation": "GRA / Front End Engineer",
                     "logo": "assets/images/gmu-logo.jpg",
                     "websiteLink": "https://www2.gmu.edu/",
                     "abstract": [

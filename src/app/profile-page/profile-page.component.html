@@ -29,22 +29,6 @@
     </div>
 </div>
 <br>
-<div class="row">
-    <div class="col-md-6" *ngFor="let school of schoolList; let i = index;">
-        <div class="card {{i%2==0? 'left-animation':'right-animation'}}" style="margin-bottom: 2%">
-            <div class="card-header">
-                <strong>{{school.course + ' in ' + school.major}}</strong>
-            </div>
-            <div class="card-body">
-                    <a href="{{school.websiteLink}}" target="_blank"><img class="float-right" style="height: 40px;" src="{{school.logo}}"></a>
-                <h5 class="card-title">{{school.name}}</h5>
-                <h6 class="card-title">{{school.address}}</h6>
-                <p class="card-text">{{school.startDate + ' - ' + school.endDate}}</p>
-            </div>
-        </div>
-    </div>
-</div>
-<br>
 <div class="card bottom-animation" >
     <div class="card-header">
         <strong>Experience</strong>
@@ -81,7 +65,22 @@
         </h6>
     </div>
 </div>
-
+<br>
+<div class="row">
+    <div class="col-md-6" *ngFor="let school of schoolList; let i = index;">
+        <div class="card {{i%2==0? 'left-animation':'right-animation'}}" style="margin-bottom: 2%">
+            <div class="card-header">
+                <strong>{{school.course + ' in ' + school.major}}</strong>
+            </div>
+            <div class="card-body">
+                    <a href="{{school.websiteLink}}" target="_blank"><img class="float-right" style="height: 40px;" src="{{school.logo}}"></a>
+                <h5 class="card-title">{{school.name}}</h5>
+                <h6 class="card-title">{{school.address}}</h6>
+                <p class="card-text">{{school.startDate + ' - ' + school.endDate}}</p>
+            </div>
+        </div>
+    </div>
+</div>
 <br>
 <div class="card">
     <div class="card-header">

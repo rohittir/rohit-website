@@ -6,7 +6,7 @@
 
 
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { combineLatest, map, catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { CricBuzzDataService } from '../services/cricbuzz-data.service';
 import { forkJoin } from 'rxjs';
 
