@@ -11,7 +11,7 @@
 
         <!-- Download Resume -->
         <div class="btn-group float-right">
-            <a class="btn btn-primary" href="{{jsonData.userData.resume.pdf}}" target="_blank">Resume</a>
+            <a class="btn btn-primary" href="{{jsonData.userData.resume.pdf}}" target="_blank"><i class="fa fa-file-pdf-o"></i> Resume</a>
             <!-- <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
@@ -51,15 +51,18 @@
     </div>
     <div class="card-body">
         <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4" *ngFor="let industry of industryList">
-                <div class="card" style="margin-bottom: 5%">
-                    <div class="card-body">
-                        <a href="{{industry.websiteLink}}" target="_blank"><img class="float-right" style="max-height: 40px;" src="{{industry.logo}}"></a>
-                        <h5 class="card-title">{{industry.name}}</h5>
+            <div class="col-sm-6 col-md-6 col-lg-6" *ngFor="let industry of industryList">
+                <div class="card experience-card">
+                    <div class="card-header">
+                        <strong>{{industry.name}}</strong>
+                    </div>
+                    <div class="card-body experience-card-body">
+                        <a href="{{industry.websiteLink}}" target="_blank"><img class="float-right" src="{{industry.logo}}"></a>
+                        <!-- <a class="card-title">{{industry.name}}</a> -->
                         <h6 class="card-text">{{industry.designation}}</h6>
                         <p class="card-text">{{(industry.endDate)? industry.startDate + ' - ' + industry.endDate : 'Working since ' + industry.startDate}}</p>
                         <h6 class="card-text">{{industry.address}}</h6>
-                        <a routerLink="/profile/{{industry.label}}" class="btn btn-primary">More Details</a>
+                        <button (click)="handleExperienceClick(industry.label)" class="btn btn-primary float-right">More Details <i class="fa fa-chevron-circle-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -87,14 +90,14 @@
     <div class="card-body">
         <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-6" *ngFor="let project of academicProjectList">
-                <div class="card" style="margin-bottom: 5%">
+                <div class="card academic-card">
                     <div class="card-body">
                         <h5 class="card-title">{{project.name}}</h5>
                         <h6 class="card-text">{{project.date}}</h6>
                         <p class="card-text" *ngFor="let abItem of project.abstract">
                             {{abItem}}
                         </p>
-                        <a href="{{project.referenceLink}}" target="_blank" class="btn btn-primary">More Details</a>
+                        <a href="{{project.referenceLink}}" target="_blank" class="btn btn-primary float-right"><i class="fa fa-github"></i> Source Code</a>
                     </div>
                 </div>
             </div>

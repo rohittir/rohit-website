@@ -4,6 +4,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { TimelinePageComponent } from './timeline-page/timeline-page.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ProfileDetailsComponent } from './profile-page/profile-details/profile-details.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfilePageComponent
+  },
+  {
+    path: 'profile/:detailsLabel',
+    component: ProfileDetailsComponent
   },
   {
     path: 'timeline',

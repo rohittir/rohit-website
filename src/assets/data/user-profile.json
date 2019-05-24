@@ -19,10 +19,9 @@
                 }
             },
             "abstract": [
-                "Hi there!! I'm an experienced agile software developer with a demonstrated history of working in large software projects and teams.",
-                "I'm proactively working in web development using Angular 2.0 and Typescript for front end design and development. I also use Javascript, CSS and Bootstrap to implement various interface components and design a modern and easy to use interface.",
-                "My proficiency in Java and ability to solve difficult problems in back end technologies including J2EE, Spring framework and Hibernate helped me to forward a step to become a full stack developer. Also, to add on SQL Relational DB, Node.js, RESTful Web Services and AJAX have been my close friends!",
-                "I'm a strong research and development professional, graduating in May 2018 with masters degree in Software Engineering from George Mason University. So contact me if you are looking for a web developer, before I commit to someone else :)"
+                "Hi there!! Thank you for your interest in my portfolio. I'm an experienced front-end developer, emphasized on Angular framework and other javascript libraries. I have been working on large software projects and software development teams for more than 7.5 years.",
+                "My experties in Angular has been developed by working on various projects including an online financial Robo investment product, where I have been working with Angular 4, and 6 with Typescript to design and develop a white-labelled front end platform which can be configured with customized portfolios, themes, and styles for different firms. I have also been using Redux for state management and GraphQL with Node.js middleware for efficient data transfer and communication between the front end and back end platform.",
+                "Having worked on various software projects, I have developed a strong framework design and development skills, along with being efficient with coding and creating reusable and modular components that help in improving scalability, efficiency and performance."
             ]
         },
 
@@ -43,18 +42,19 @@
                 "Angular 2, 4 and 6",
                 "Typescript",
                 "Javascript",
-                "NativeScript",
+                "ES6",
                 "Node.js",
-                "Java",
-                "C++",
                 "GraphQL",
                 "Redux",
                 "RxJs",
                 "Angular Material",
+                "NativeScript For Angular",
                 "HTML5",
-                "CSS3",
+                "CSS",
                 "SASS",
                 "AmCharts",
+                "Java",
+                "C++",
                 "Spring",
                 "JPA",
                 "J2EE",
@@ -62,31 +62,26 @@
                 "MySQL",
                 "NoSQL",
                 "jQuery",
-                "ES5",
-                "ES6",
                 "Mobile-First Strategy",
                 "CSS Media Query",
                 "CSS Grid",
                 "JUnit",
                 "Karma",
                 "Jasmine",
+                "Protractor",
                 "Webpack",
-                "AngularCLI",
-                "Maven",
+                "Gulp",
+                "Angular-CLI",
                 "REST Services and API",
                 "D3.js",
-                "Agile",
-                "Sprint Planning",
-                "Waterfall",
-                "Visual Studio",
-                "Visual Studio Code",
+                "Agile/Sprint",
+                "VS Code",
                 "Eclipse","NetBeans",
                 "IntelliJIDEA",
                 "Git",
                 "SVN",
-                "Computational Geometry",
-                "CAD Development",
-                "NX Customization",
+                "JIRA",
+                "CI/CD Tools",
                 "Data Structures",
                 "Design Patterns",
                 "Problem Solving"
@@ -136,11 +131,18 @@
                         "Work in Agile to collaborate with design team, QA and back end team for UI requirements and release."
                     ],
                     "detailedInfo": [
-                        "Developed the front end of the financial investment web based enterprise product using Angular 4+, Express.js, Node.js, GraphQL, Rxjs, Angular Material, and Redux.",
-                        "Collaborating with various teams including product design and QA in agile environment using JIRA to gather requirements and implement the web interface."
+                        "Worked closely with the product owner, design team and back end engineers to design and develop the front end interface of an online Robo financial investment and brokerage application.",
+                        "Worked on developing a white-labeled front-end architecture using Angular 6, that can be configured as a BRAND, using various configurations at runtime for various styles, colors, content and features.",
+                        "Developed a common library in Angular, that captures common business requirements and published to private npm repository, which are imported as a npm package to use in multiple relevant applications.",
+                        "Worked on state management using Redux based architecture, that stores all the data (state) at one place and the relevant components can subscribe to the reducer events, to alter  their views based on the state.",
+                        "Implemented various GraphQL Schemas and Mutations in Node.js framework based on the requirements to consume back end REST APIs.",
+                        "Implemented various Angular components with material views, styled using SASS, applied colors using variables and mixins, layouts with responsive and mobile-first strategy, supporting cross-browser compatibilities.",
+                        "Worked on design and development of native ios mobile application using NativeScript for Angular.",
+                        "Worked using Webpack, Angular-cli for various configurations including AOT builds, created gulp tasks for packaging common library and branded Angular components and modules.",
+                        "Improved the old architecture, which resulted in reduction up to 80% of the time spent on adding new features."
                     ],
                     "technologies": [
-                        "Angular 4 and 6", "Typescript", "Javascript", "NativeScript for native mobile", "Angular Material", "Node.js", "GraphQL", "Redux", "RxJs", "CSS3", "HTML5", "Agile", "Karma", "Jasmine", "Webpack", "VS Code"
+                        "Angular 4 and 6", "Typescript", "NativeScript", "Angular Material", "Node.js", "GraphQL", "Redux", "RxJs", "SASS", "CSS", "HTML", "AmCharts.js", "Agile", "Karma", "Jasmine", "Webpack", "Gulp", "JIRA"
                     ]
                 },
                 {
@@ -157,17 +159,17 @@
                         "Manage sprint plan using agile"
                     ],
                     "detailedInfo": [
-                        "Designed and developed the front end of a web application which helps analyzing intelligence problems with collaboration of multiple users.",
-                        "Improved user experience by developing easy to understand and responsive interface which reduced to 70% of the time to analyze and solve the intelligence for the first time users.",
-                        "Implemented loosely coupled front-end components using Angular 2.0 framework, Typescript and JavaScript and used CSS and Bootstrap styles for consistent look and feel and responsiveness.",
-                        "Developed front-end code in a timely and high quality manner while ensuring high performance and security.",
-                        "Implemented service classes to interact with back end code through RESTful web services and exchanging data in JSON.",
-                        "Worked in agile and test driven development settings to plan features and release MVPs in short intervals.",
-                        "Implemented client side unit tests and integration tests using Karma and Jasmine in angular for testing optimization.",
-                        "Managed bi-weekly sprint plans and daily standup meetings with a team of 5 people."
+                        "Designed and developed the front-end of a web application to help analyzing intelligence problems with online collaboration of multiple analysts and crowdsourcing.",
+                        "Implemented major features with styled views including online messaging, online training, interface help tutorials, tree based argumentation etc.",
+                        "Improved user experience by developing easy to understand and responsive interface, which reduced 70% of the time for new users to analyze and solve the intelligence problems.",
+                        "Implemented reusable and loosely coupled front-end components using Angular 2.0 framework, Typescript and applied responsive styles using CSS and Bootstrap library.",
+                        "Designed and implemented Angular services using HTTP and Promise for back-end integration using RESTful APIs and proper error handling.",
+                        "Worked in Agile and test-driven development settings to plan features and release in short interval MVPs.",
+                        "Implemented end-to-end unit tests using Karma and Jasmine in Angular.",
+                        "Led and managed bi-weekly sprint plans and daily standup meetings for a team of 5 people."
                     ],
                     "technologies": [
-                        "Angular", "Typescript", "Javascript", "CSS3", "HTML5", "Agile", "Java", "Karma", "Jasmine", "Webpack", "VS Code"
+                        "Angular 2", "Typescript", "ES6", "CSS3", "HTML5", "Agile", "Java", "Karma", "Jasmine", "Webpack", "VS Code"
                     ]
                 },
                 {
@@ -184,17 +186,17 @@
                         "Participate in requirement gathering and project reviews with funtional team"
                     ],
                     "detailedInfo": [
-                        "Worked on an internal application development to integrate over 200 design tools as part of a single system for better hand-offs with effective data transfer and communication.",
-                        "Implemented front end interface using JavaScript, jQuery, CSS3, SASS and HTML5.",
+                        "Worked on a web based product development using Java to integrate over 200 design tools as part of a single system, for better hand-offs with effective data transfer and communication.",
+                        "Implemented front-end interface for the product using JavaScript, jQuery, CSS3, SASS and HTML5",
                         "Created and implemented a custom CSS grid system, with CSS media queries for mobile responsiveness.",
                         "Consulted and documented UI best practices and code standards to maintain and improve performance and security.",
-                        "Led a software project in alpha stage which was running late for more than 6 months and productionized by utilizing only 50% of the time under strict timelines following agile methodologies for planning and development.",
+                        "Led a critical project in alpha stage which was running late for more than 6 months and productionized by utilizing only 50% of the anticipated time, following Agile/sprint process in planning and development.",
                         "Participated in gathering functional requirements with US based stake-holders and effectively converted functional requirements to use cases and successful implementations.",
-                        "Served as primary point of contact for a small project in alpha stage, engaging in weekly meetings for requirements, implementation, testing plans and release plans.",
-                        "Improved performance of a critical parameter computation in a nacelle design tool by 4 times, using techniques like least square fitting algorithm and parallel computation."
+                        "Worked as a single point of contact to US based stake-holders and had been the part of all phases of software lifecycle, with a successful deployment of the first version in production.",
+                        "Improved performance of a critical parameter computation in a Nacelle design tool by 4 times, using techniques like least square fitting algorithm and parallel computation."
                     ],
                     "technologies": [
-                        "Java", "C++", "Javascript", "CSS3", "HTML5", "Agile", "SVN", "JIRA", "Sprint Planning", "Jenkins", "Visual Studio", "Computational Geometry", "QT"
+                        "Java", "Javascript", "CSS3", "HTML5", "Agile", "SVN", "JIRA", "Agile/Sprint Planning", "Jenkins", "Eclipse"
                     ]
                 },
                 {

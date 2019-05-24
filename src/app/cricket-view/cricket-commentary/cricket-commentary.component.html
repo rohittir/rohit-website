@@ -119,11 +119,11 @@
                     <!-- Commentry -->
                     <div *ngFor="let commentry of selectedCommentary.comm_lines">
                         <div class="alert {{commentry.evt === 'wicket' ? 'alert-danger' : 'alert-info'}}" role="alert" *ngIf="commentry.comm">
-                            <span *ngIf="commentry.o_no && commentry.score">{{commentry.o_no}} : {{commentry.score}} - </span>
+                            <span *ngIf="commentry.o_no">{{commentry.o_no}} : </span>
                             <span [innerHTML]="commentry.comm"></span>
                         </div>
                         <div class="alert alert-success" role="alert" *ngIf="!commentry.comm">
-                            <strong>{{commentry.o_no}} End of over: {{commentry.o_summary}}</strong>
+                            <strong>{{getOverNumber(commentry.o_no)}} : End of over - {{commentry.o_summary}}</strong>
                         </div>
                     </div>
                 </div>

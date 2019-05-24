@@ -9,6 +9,8 @@ import { JSONDataService } from '../services/json-data.service';
 })
 export class HeaderComponent implements OnInit {
 
+  public isCollapsed = false;
+
   constructor(private _router: Router, private _jsonDataService: JSONDataService) { }
 
   ngOnInit() {
@@ -19,7 +21,7 @@ export class HeaderComponent implements OnInit {
     //
 
     isActive(routeAddress: string) {
-      return this._router.url === routeAddress;
+      return this._router.url.indexOf(routeAddress) >= 0;
   }
 
   isSubMenuActive(routes: Array<string>) {

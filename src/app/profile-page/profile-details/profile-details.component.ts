@@ -8,8 +8,9 @@
 
 
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { JSONDataService } from '../../services/json-data.service';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-profile-details',
@@ -22,33 +23,46 @@ export class ProfileDetailsComponent implements OnInit {
   //
   // PROPERTIES
   //
-  profileLabel = null;
-  industryInfo = null;
-
+  public profileLabel = null;
+  public industryInfo = null;
 
   //
   // LIFECYCLE
   //
-  constructor(private _route: ActivatedRoute, private _jsonDataService: JSONDataService) {
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _jsonDataService: JSONDataService) {
   }
 
   ngOnInit() {
     this._route.params.subscribe(params => {
       this.profileLabel = params['detailsLabel'];
-
       if (this.profileLabel) {
-        this.initData();
+        const jsonData = this._jsonDataService.getJsonData();
+        if (!jsonData) {
+          this._jsonDataService.readUserProfileDataFromJson()
+              .pipe(
+                  catchError((err1: any) => {
+                      console.error(err1);
+                      return err1;
+                  })
+              ).subscribe((res1: any) => {
+                  this.initData(res1);
+                  this._jsonDataService.setJsonData(res1);
+              });
+        } else {
+          this.initData(jsonData);
+        }
+        window.scrollTo(0, 0);
       }
-
     });
 
   }
 
-  initData() {
+  private initData(jsonData: any): any {
 
-    const jsonData = this._jsonDataService.getJsonData();
     if (jsonData) {
-
       const industries = jsonData.userData.experience.industries;
       for (let i = 0; i < industries.length; i++) {
         if (industries[i].label === this.profileLabel) {
@@ -58,9 +72,10 @@ export class ProfileDetailsComponent implements OnInit {
       }
 
     }
-
-
   }
 
+  public handleBackClick() {
+    this._router.navigate(['/profile']);
+  }
 
 }

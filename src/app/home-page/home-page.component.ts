@@ -41,41 +41,21 @@ export class HomePageComponent implements OnInit {
     // OPERATIONS
     //
     initData() {
-
-        // USER PRofile Data
-        // this._jsonDataService.fetchUserData()
-        //     .pipe(
-        //         catchError((err: any) => {
-        //             console.log(err);
-
-                    // retry locally when server is not available
-                    this._jsonDataService.readUserProfileDataFromJson()
-                        .pipe(
-                            catchError((err1: any) => {
-                                console.error(err1);
-                                return err1;
-                            })
-                        ).subscribe((res1: any) => {
-                            this.userProfile = res1.userData.profile;
-                            this._jsonDataService.setJsonData(res1);
-                        });
-                    // return err;
-            //     })
-            // ).subscribe((res: any) => {
-            //     this.userProfile = res.userData.profile;
-            //     this._jsonDataService.setJsonData(res);
-            // });
-
-        // INspirations data
-        // this._jsonDataService.fetchCurrentInspiration()
-        //     .pipe(
-        //         catchError((err: any) => {
-        //             console.error(err);
-        //             return err;
-        //         })
-        //     ).subscribe((res: any) => {
-        //         this.inspirationData = res;
-        //     });
+        const userProfile = this._jsonDataService.getJsonData();
+        if (!userProfile) {
+            this._jsonDataService.readUserProfileDataFromJson()
+                .pipe(
+                    catchError((err1: any) => {
+                        console.error(err1);
+                        return err1;
+                    })
+                ).subscribe((res1: any) => {
+                    this.userProfile = res1.userData.profile;
+                    this._jsonDataService.setJsonData(res1);
+                });
+        } else {
+            this.userProfile = userProfile.userData.profile;
+        }
     }
 }
 

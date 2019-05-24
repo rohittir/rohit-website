@@ -6,8 +6,9 @@
 
 
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { combineLatest } from 'rxjs/operators';
+import { combineLatest, map, catchError } from 'rxjs/operators';
 import { CricBuzzDataService } from '../services/cricbuzz-data.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-cricket-scorecard',
@@ -49,17 +50,20 @@ export class CricketScorecardComponent implements OnInit, OnChanges {
             return;
         }
 
-        this._cricbuzzDataService.getMatchScorecard(this.matchId)
-        .pipe(
-            combineLatest(
-                this._cricbuzzDataService.getMatchPlayers(this.matchId)
-            )
+        forkJoin(
+            this._cricbuzzDataService.getMatchScorecard(this.matchId),
+            this._cricbuzzDataService.getMatchPlayers(this.matchId)
         )
-        .subscribe(([scorecard, players]) => {
-            this.scoreCard = scorecard;
-            this.players = players;
+        .pipe(
+            catchError((err1: any) => {
+                console.error(err1);
+                return err1;
+            })
+        )
+        .subscribe((res: any) => {
+            this.scoreCard = res[0];
+            this.players = res[1];
             this.initSquad();
-            // console.error('ROHIT:::scorecard', scorecard, players);
         });
     }
 

@@ -1,42 +1,47 @@
-
 <!--
     TEMPLATE
     @author: Rohit Tirmanwar
  -->
 
- <ng-container *ngIf="industryInfo">
+<ng-container *ngIf="industryInfo">
 
-<div class="row">
+  <button class="btn btn-primary" (click)="handleBackClick()">
+    <span class="fa fa-chevron-circle-left"></span>
+    Back
+  </button>
+  <hr>
 
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+  <div class="row">
 
-    <div class="alert alert-primary">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
 
-      <h5>{{industryInfo.name}}</h5>
-      <h6>{{industryInfo.address}}</h6>
-      <h6>{{industryInfo.designation}}</h6>
-      <h6>Start Date: {{industryInfo.startDate}}</h6>
-      <h6 *ngIf="industryInfo.endDate">End Date: {{industryInfo.endDate}}</h6>
+      <div class="alert alert-primary">
 
-      <br>
-      <h6>Key Technologies: </h6>
-      <div *ngFor="let tech of industryInfo.technologies">{{tech}}</div>
+        <h5>{{industryInfo.name}}</h5>
+        <h6>{{industryInfo.address}}</h6>
+        <h6>{{industryInfo.designation}}</h6>
+        <h6>Start Date: {{industryInfo.startDate}}</h6>
+        <h6 *ngIf="industryInfo.endDate">End Date: {{industryInfo.endDate}}</h6>
 
+        <br>
+        <h6>Key Technologies: </h6>
+        <div *ngFor="let tech of industryInfo.technologies">{{tech}}</div>
+
+      </div>
     </div>
-  </div>
 
-  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
 
-    <div class="card">
+      <div class="card">
         <div class="card-header">
-            <strong>Experience</strong>
+          <strong>Experience</strong>
         </div>
         <div class="card-body">
           <p *ngFor="let info of industryInfo.detailedInfo">{{info}}</p>
         </div>
+      </div>
+
     </div>
 
   </div>
-
-</div>
 </ng-container>

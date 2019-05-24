@@ -63,7 +63,6 @@ export class CricketLiveComponent implements OnInit, OnDestroy {
         })
       ).subscribe((res: any) => {
         this.mapApiDataToLiveData(res);
-        // console.error('ROHIT:::matchesList:::', this.liveCricketData);
     });
   }
 

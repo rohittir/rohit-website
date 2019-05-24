@@ -1,0 +1,11 @@
+
+.experience-card, .academic-card {
+    margin-bottom: 5%;
+    .experience-card-body {
+        a {
+            img {
+                max-height: 40px;
+            }
+        }
+    }
+}

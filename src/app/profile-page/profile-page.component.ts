@@ -10,10 +10,12 @@
 import { Component, OnInit } from '@angular/core';
 import { JSONDataService } from '../services/json-data.service';
 import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-page',
-  templateUrl: './profile-page.component.html'
+  templateUrl: './profile-page.component.html',
+  styleUrls: ['./profile-page.component.scss']
 })
 export class ProfilePageComponent implements OnInit {
 
@@ -21,40 +23,33 @@ export class ProfilePageComponent implements OnInit {
     //
     // PROPERTIES
     //
-    jsonData = null;
-    profile = null;
-    skillList = null;
-    schoolList = null;
-    industryList = null;
-    academicProjectList = null;
-
-
+    public jsonData = null;
+    public profile = null;
+    public skillList = null;
+    public schoolList = null;
+    public industryList = null;
+    public academicProjectList = null;
     //
     // LIFECYCLE
     //
-    constructor(private _jsonDataService: JSONDataService) {
+    constructor(
+        private _jsonDataService: JSONDataService,
+        private _router: Router) {
 
     }
-
 
     ngOnInit() {
         this.initData();
     }
 
-
     //
     // OPERATIONS
     //
 
-    initData() {
-         // USER PRofile Data
-        //  this._jsonDataService.fetchUserData()
-        //  .pipe(
-        //      catchError((err: any) => {
-        //         console.log(err);
-
-                // retry locally when server is not available
-                this._jsonDataService.readUserProfileDataFromJson()
+    private initData(): void {
+        this.jsonData = this._jsonDataService.getJsonData();
+        if (!this.jsonData) {
+            this._jsonDataService.readUserProfileDataFromJson()
                 .pipe(
                     catchError((err1: any) => {
                         console.error(err1);
@@ -66,22 +61,21 @@ export class ProfilePageComponent implements OnInit {
                     this._jsonDataService.setJsonData(this.jsonData);
                     this.populateUserJSONData();
                 });
-        //         return err;
-        //      })
-        //  )
-        //  .subscribe((res: any) => {
-        //      this.jsonData = res;
-        //      this._jsonDataService.setJsonData(this.jsonData);
-        //      this.populateUserJSONData();
-        //  });
+        } else {
+            this.populateUserJSONData();
+        }
     }
 
-    populateUserJSONData() {
+    private populateUserJSONData(): void {
         this.profile = this.jsonData.userData.profile;
         this.skillList = this.jsonData.userData.skills.keywords;
         this.schoolList = this.jsonData.userData.education.schools;
         this.industryList = this.jsonData.userData.experience.industries;
         this.academicProjectList = this.jsonData.userData.academic.projects;
+    }
+
+    public handleExperienceClick(industryLabel: string): void {
+        this._router.navigate([`/profile/${industryLabel}`]);
     }
 
 }

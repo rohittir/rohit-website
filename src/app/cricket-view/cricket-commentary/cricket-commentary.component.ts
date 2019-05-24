@@ -51,7 +51,7 @@ export class CricketCommentaryComponent implements OnInit, OnDestroy {
     }
   }
 
-  private initData() {
+  private initData(): void {
     this._cricbuzzDataService.getMatchCommentary(this.matchId)
       .pipe(
         catchError((err: any) => {
@@ -59,13 +59,15 @@ export class CricketCommentaryComponent implements OnInit, OnDestroy {
           return err;
         })
       ).subscribe((res: any) => {
-        // console.error('ROHIT::commentary:::', res);
         this.selectedCommentary = res;
       });
-
   }
 
-  private convertGMTtoLocalTime(gmtTime: string) {
+  public getOverNumber(over: string): string {
+    return '' + (parseInt(over, 10) + 1);
+  }
+
+  public convertGMTtoLocalTime(gmtTime: string): string {
     const time = gmtTime.split(':');
     if (time.length === 2) {
       const gmtTimeMin = Math.floor(parseInt(time[0], 10) * 60) + Math.floor(parseInt(time[1], 10));

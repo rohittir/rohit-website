@@ -3,18 +3,34 @@
 {
     "timeline": [
         {
+            "title": "Revamped this website",
+            "description": "This website is revamped by upgrading the Angular from version 4 to 7. Also created a new github repository.",
+            "date": "May 2019",
+            "links": [
+                {
+                    "name": "Source Code (GitHub)",
+                    "url": "https://github.com/rohittir/Personal-Website-2.0"
+                }
+            ]
+        },
+        {
+            "title": "Worked on design and development of native ios mobile application using NativeScript for Angular",
+            "description": "Designed and developed ios native application using NativeScript for Angular and successfully deployed to Apple App Store. NativeScript is a language simillar to HTML with custom tags which can be used in Angular to generate native mobile application views. This makes it possible to reuse the Angular code written for web development to develop native mobile applications on Android and ios.",
+            "date": "January 2019"
+        },
+        {
             "title": "Started working as a Front End Engineer at Folio Financial, Inc.",
-            "description": "Started working as a full time front end developer for web based online financial and investment products using the stack that includes Angular 4, Node.js, GraphQL and Redux.",
+            "description": "Started working as a full time front end developer at Folio to design and develop a web based online Robo financial investment and brokerage product using the stack that includes Angular 4, Node.js, GraphQL and Redux.",
             "date": "July 2018"
         },
         {
             "title": "Graduated from George Mason University, Fairfax",
-            "description": "Graduated with masters degree in Software Engineering with GPA 3.92.",
+            "description": "Milestone!! Graduated with masters degree in Software Engineering with GPA 3.92.",
             "date": "May 2018"
         },
         {
             "title": "Created this website",
-            "description": "This website is created using Angular 4, Typescript, Boostrap and Node.js. All the interface components are designed and developed by myself and the source code is available at github. The idea of building this website is to use it for any individual. Hence it is created to read the data from a json file and dynamically render on the page.",
+            "description": "This website is created for the first time using Angular 4, Typescript, Boostrap and Node.js. All the interface components are designed and developed by myself and the source code is available at github. The idea of building this website is to make it configurable to use it for any individual. Hence there are services that reads the json data from a file that is compiled in the bundle and can be loaded dynamically to render the data on the view.",
             "date": "April 2018",
             "links": [
                 {
