@@ -32,5 +32,5 @@ app.use(function (req, res, next) {
 new CricbuzzDataAPI(app);
 
 app.listen(3000, function () {
-  console.log(`Example app listening on port 3000`);
+  console.log(`Listening on port 3000`);
 });
