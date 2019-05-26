@@ -31,11 +31,6 @@ import { CricBuzzDataService } from './services/cricbuzz-data.service';
         RouterModule.forChild([
             {
                 path: '',
-                redirectTo: 'home',
-                pathMatch: 'full'
-            },
-            {
-                path: 'home',
                 component: CricketViewComponent
             },
             {

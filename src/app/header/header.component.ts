@@ -17,30 +17,30 @@ export class HeaderComponent implements OnInit {
   }
 
   //
-    // OPERATIONS
-    //
+  // OPERATIONS
+  //
 
-    isActive(routeAddress: string) {
-      return this._router.url.indexOf(routeAddress) >= 0;
+  public isActive(routeAddress: string): boolean {
+    return this._router.url.indexOf(routeAddress) >= 0;
   }
 
-  isSubMenuActive(routes: Array<string>) {
-      for (let i = 0; i < routes.length; i++) {
-          if (this._router.url === routes[i]) {
-              return true;
-          }
+  public isSubMenuActive(routes: Array<string>): boolean {
+    for (let i = 0; i < routes.length; i++) {
+      if (this._router.url === routes[i]) {
+        return true;
       }
+    }
 
-      return false;
+    return false;
   }
 
-  getHeaading(): string {
-      const data = this._jsonDataService.getJsonData();
-      if (data) {
-          return data.userData.profile.name;
-      }
+  public getHeaading(): string {
+    const data = this._jsonDataService.getJsonData();
+    if (data) {
+      return data.userData.profile.name;
+    }
 
-      return 'Rohit Tirmanwar';
+    return 'Rohit Tirmanwar';
   }
 
 
