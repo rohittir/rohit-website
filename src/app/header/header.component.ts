@@ -9,7 +9,7 @@ import { JSONDataService } from '../services/json-data.service';
 })
 export class HeaderComponent implements OnInit {
 
-  public isCollapsed = false;
+  public isCollapsed = true;
 
   constructor(private _router: Router, private _jsonDataService: JSONDataService) { }
 

@@ -17,9 +17,6 @@ export class CricbuzzDataAPI {
     constructor(private app: express.Application) {
         this.applyEndPoints();
         this.extractDataToBuckets();
-        setInterval(() => {
-            this.extractDataToBuckets();
-        }, fetchInterval);
     }
 
     private applyEndPoints() {
@@ -183,6 +180,16 @@ export class CricbuzzDataAPI {
             'https://www.cricbuzz.com/match-api/livematches.json',
             key
         );
+
+        let interval = fetchInterval;
+        const d = new Date();
+        if ( d.getHours() < 14 && d.getHours() > 6 ) {
+            interval = 5 * 60 * 1000;
+        }
+
+        setTimeout(() => {
+            this.extractDataToBuckets();
+        }, interval);
     }
 
     private extractMatchSpecificDataToBuckets(matchIdList: Array<string>): void {
