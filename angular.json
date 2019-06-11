@@ -137,5 +137,8 @@
       }
     }
   },
-  "defaultProject": "Rohit-Website"
+  "defaultProject": "Rohit-Website",
+  "cli": {
+    "defaultCollection": "@nativescript/schematics"
+  }
 }

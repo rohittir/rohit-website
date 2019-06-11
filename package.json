@@ -2,6 +2,10 @@
   "name": "rohit-website",
   "version": "0.0.0",
   "scripts": {
+    "android": "tns run android --bundle",
+    "ios": "tns run ios --bundle",
+    "mobile": "tns run --bundle",
+    "preview": "tns preview --bundle",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -17,6 +21,10 @@
   },
   "private": true,
   "dependencies": {
+    "nativescript-angular": "~7.2.0",
+    "nativescript-theme-core": "~1.0.4",
+    "reflect-metadata": "~0.1.12",
+    "tns-core-modules": "~5.2.0",
     "@angular/animations": "^7.0.4",
     "@angular/cdk": "^7.2.0",
     "@angular/common": "~7.0.0",
@@ -28,6 +36,7 @@
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
+    "@nativescript/schematics": "^0.6.0",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
@@ -39,6 +48,8 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
+    "nativescript-dev-webpack": "^0.20.0",
+    "@nativescript/schematics": "~0.4.0",
     "@angular-devkit/build-angular": "~0.10.0",
     "@angular/cli": "~7.0.3",
     "@angular/compiler-cli": "~7.0.0",
@@ -59,5 +70,11 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.1.1"
+  },
+  "nativescript": {
+    "id": "org.nativescript.ngsample",
+    "tns-ios": {
+      "version": "4.2.0"
+    }
   }
 }

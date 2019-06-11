@@ -5,8 +5,8 @@ import fs = require('fs');
 import AWS = require('aws-sdk');
 
 const s3 = new AWS.S3({
-    accessKeyId: env.process.ACCESS_KEY,
-    secretAccessKey: env.process.SECRET_ACCESS_KEY
+    accessKeyId: process.env.ACCESS_KEY,
+    secretAccessKey: process.env.SECRET_ACCESS_KEY
 });
 const bucket = 'personal-website-2.0';
 const key = 'assets/cricbuzz-data';

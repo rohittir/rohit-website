@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { SERVER_CONFIG } from 'application-config/server-config';
+import { SERVER_CONFIG } from '../../../../application-config/server-config';
 
 @Injectable()
 export class LiveScoreService {
