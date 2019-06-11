@@ -7,8 +7,8 @@
             "displayImage": "assets/images/profile.jpg",
             "contact": {
                 "email" : [
-                    "rtirmaw@gmu.edu",
-                    "rohit.tir2@gmail.com"
+                    "rohit.tir2@gmail.com",
+                    "rtirmaw@gmu.edu"
                 ],
                 "phone" : [
                     "+1 (571) 338-1143"
@@ -19,9 +19,12 @@
                 }
             },
             "abstract": [
-                "Hi there!! Thank you for your interest in my portfolio. I'm an experienced front-end developer, emphasized on Angular framework and other javascript libraries. I have been working on large software projects and software development teams for more than 7.5 years.",
-                "My experties in Angular has been developed by working on various projects including an online financial Robo investment product, where I have been working with Angular 4, and 6 with Typescript to design and develop a white-labelled front end platform which can be configured with customized portfolios, themes, and styles for different firms. I have also been using Redux for state management and GraphQL with Node.js middleware for efficient data transfer and communication between the front end and back end platform.",
-                "Having worked on various software projects, I have developed a strong framework design and development skills, along with being efficient with coding and creating reusable and modular components that help in improving scalability, efficiency and performance of the application."
+                "Hi there!! Welcome to my profile page. Here you'll find the details of my experience, skills, education and some personal projects. You can use the navigation on the top to jump to each section of this page.",
+                "I'm a MEAN stack software developer with expertise in the front end design and development using Angular 2+, Redux, Node.js, GraphQL and the stack around it. ",
+                "I have been recently working on the front end architecture design for an online Robo advisor investment product. It is a highly customizable white labelled architecture that provides run-time branding flexibility.",
+                "It has been a long 7.5 years of journey in the software development during which the technologies kept changing and so my knwoeldge and curiosity of learning and putting them into practice.",
+                "Having experties in Object Oriented prohramming language, it became easy for me to learn the new stack quickly and experience helped me using them for the right requirements/features.",
+                "Please go through my complete profile below and download my resume using the button on the top right corner of this section."
             ]
         },
 
@@ -65,6 +68,7 @@
                 "Mobile-First Strategy",
                 "CSS Media Query",
                 "CSS Grid",
+                "ADA/508 Compliance",
                 "JUnit",
                 "Karma",
                 "Jasmine",
@@ -73,6 +77,13 @@
                 "Gulp",
                 "Angular-CLI",
                 "REST Services and API",
+                "AWS S3 Storage",
+                "AWS EC2 Container",
+                "AWS CloudFront",
+                "AWS DynamoDB",
+                "ServerLess Architecture",
+                "AWS API Gateway",
+                "AWS Lambda",
                 "D3.js",
                 "Agile/Sprint",
                 "VS Code",
@@ -81,7 +92,7 @@
                 "Git",
                 "SVN",
                 "JIRA",
-                "CI/CD Tools",
+                "Bamboo for CI/CD",
                 "Data Structures",
                 "Design Patterns",
                 "Problem Solving"
@@ -248,6 +259,16 @@
                         "Front end of the website is designed using the concept of UX those are learned through UI Design and Development course at GMU."
                     ],
                     "referenceLink": "https://github.com/rohittir/Restaurant-Service"
+                },
+                {
+                    "name": "Dynamic Theming with CSS Variables",
+                    "date": "May 2019",
+                    "abstract": [
+                        "An Angular application that provides a way to change it's color and styles at runtime using custom css properties/variables.",
+                        "This enables way to create and apply various themes by providing styles and colors without rebuilding and redeplopying the front end code."
+                    ],
+                    "referenceLink": "https://github.com/rohittir/dynamic-theming-with-css-variables",
+                    "liveDemo": "http://dynamic-theming.s3-website-us-east-1.amazonaws.com"
                 }
 
             ]

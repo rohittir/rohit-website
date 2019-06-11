@@ -29,7 +29,7 @@
     </div>
 </div>
 <br>
-<div class="card bottom-animation" >
+<div id="experience" class="card bottom-animation" >
     <div class="card-header">
         <strong>Experience</strong>
     </div>
@@ -55,7 +55,7 @@
     </div>
 </div>
 <br>
-<div class="card">
+<div id="skills" class="card">
     <div class="card-header">
         <strong>Skills</strong>
     </div>
@@ -66,7 +66,7 @@
     </div>
 </div>
 <br>
-<div class="row">
+<div id="education" class="row">
     <div class="col-md-6" *ngFor="let school of schoolList; let i = index;">
         <div class="card {{i%2==0? 'left-animation':'right-animation'}}" style="margin-bottom: 2%">
             <div class="card-header">
@@ -82,9 +82,9 @@
     </div>
 </div>
 <br>
-<div class="card">
+<div id="projects" class="card">
     <div class="card-header">
-        <strong>Academic Projects and Developments</strong>
+        <strong>Personal Projects and Developments</strong>
     </div>
     <div class="card-body">
         <div class="row">
@@ -96,17 +96,23 @@
                         <p class="card-text" *ngFor="let abItem of project.abstract">
                             {{abItem}}
                         </p>
+                        <a *ngIf="project.liveDemo" href="{{project.liveDemo}}" target="_blank" class="btn btn-primary float-left">Live Demo</a>
                         <a href="{{project.referenceLink}}" target="_blank" class="btn btn-primary float-right"><i class="fa fa-github"></i> Source Code</a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 github-text">
+                Please visit my <a target="_blank" href="{{jsonData.userData.social.github}}">GitHub</a> profile for more projects.
             </div>
         </div>
 
     </div>
 </div>
 <br>
-<div class="mt-3">
-    Disclaimer: All images and logos used here are the property of respective organizations and the copyrights are reserved with them.
+<div class="mt-3 disclaimer-text">
+    <em>Disclaimer: All images and logos used here are the property of respective organizations and the copyrights are reserved with them.</em>
 </div>
 
 </div>

@@ -1,4 +1,14 @@
 .main {
     max-width: 90%;
-    margin: 0 auto;
+    margin: 7% auto;
+    @media only screen and (max-width: 767px) {
+        /* phones */
+        margin-top: 15%;
+        margin-bottom: 10%;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1100px) {
+        /* phones */
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
 }
