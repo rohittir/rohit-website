@@ -1,10 +1,12 @@
 # Rohit-Website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
+This is the source code used for my personal website here (https://www.rohitti.online)
+
+This project uses Angular CLI (version 10.0)
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -12,7 +14,9 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+Run `npm run build-prod` for AOT production build.
 
 ## Running unit tests
 
