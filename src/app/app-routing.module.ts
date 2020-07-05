@@ -34,11 +34,11 @@ const routes: Routes = [
   },
   {
     path: 'cricket',
-    loadChildren: './cricket-view/index#CricketModule'
+    loadChildren: () => import('./cricket-view/index').then(m => m.CricketModule)
   },
   {
     path: 'covid-19',
-    loadChildren: './covid19/index#Covid19Module'
+    loadChildren: () => import('./covid19/index').then(m => m.Covid19Module)
   }
 ];
 
