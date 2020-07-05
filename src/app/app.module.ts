@@ -28,7 +28,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     SearchPageComponent,
     ProfilePageComponent,
     ProfileDetailsComponent,
-    HomePageComponent
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

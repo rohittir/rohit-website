@@ -35,6 +35,10 @@ const routes: Routes = [
   {
     path: 'cricket',
     loadChildren: './cricket-view/index#CricketModule'
+  },
+  {
+    path: 'covid-19',
+    loadChildren: './covid19/index#Covid19Module'
   }
 ];
 

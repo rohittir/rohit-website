@@ -1,0 +1,40 @@
+<h4 *ngIf="!covid19Data">Loading...</h4>
+<ng-container *ngIf="covid19Data">
+  <div style="overflow-x: auto">
+    <table class="table table-sm table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Country</th>
+          <th scope="col">Cases</th>
+          <th scope="col">Today's Cases</th>
+          <th scope="col">Deaths</th>
+          <th scope="col">Today's Deaths</th>
+          <th scope="col">Recovered</th>
+          <th scope="col">Active</th>
+          <th scope="col">Critical</th>
+          <th scope="col">Cases Per Million</th>
+          <th scope="col">Deaths Per Million</th>
+          <th scope="col">Total Tests</th>
+          <th scope="col">Tests Per Million</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of covid19Data">
+          <th scope="row">{{data.country}}</th>
+          <td>{{data.cases}}</td>
+          <th>+{{data.todayCases}}</th>
+          <td>{{data.deaths}}</td>
+          <th>+{{data.todayDeaths}}</th>
+          <td>{{data.recovered}}</td>
+          <td>{{data.active}}</td>
+          <td>{{data.critical}}</td>
+          <td>{{data.casesPerOneMillion}}</td>
+          <td>{{data.deathsPerOneMillion}}</td>
+          <td>{{!data.totalTests ? 'N/A' : data.totalTests}}</td>
+          <td>{{!data.testsPerOneMillion ? 'N/A' : data.testsPerOneMillion}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</ng-container>
