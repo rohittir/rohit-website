@@ -8,7 +8,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 
-import { IPLStatsService } from './ipl-stats.service';
+import { IPLStatsService } from '../services/ipl-stats.service';
 
 @Component({
   selector: 'app-ipl-stats',

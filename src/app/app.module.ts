@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
-import { JSONDataService } from './services/json-data.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TimelinePageComponent } from './timeline-page/timeline-page.component';
@@ -41,7 +40,6 @@ import { HomePageComponent } from './home-page/home-page.component';
     MatCheckboxModule
   ],
   providers: [
-    JSONDataService
   ],
   bootstrap: [AppComponent]
 })

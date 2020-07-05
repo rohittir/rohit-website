@@ -50,10 +50,10 @@ export class CricketScorecardComponent implements OnInit, OnChanges {
             return;
         }
 
-        forkJoin(
+        forkJoin([
             this._cricbuzzDataService.getMatchScorecard(this.matchId),
             this._cricbuzzDataService.getMatchPlayers(this.matchId)
-        )
+        ])
         .pipe(
             catchError((err1: any) => {
                 console.error(err1);

@@ -33,10 +33,4 @@ export class IPLStatsService {
         return this._http.get(this.serverUrl
             + '/api/cricket/ipl2018/schedule/');
     }
-
-
 }
-
-
-
-
