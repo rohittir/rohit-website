@@ -1,6 +1,6 @@
 # Rohit-Website
 
-This is the source code used for my personal website here (https://www.rohitti.online)
+This is the source code used for my personal website - https://www.rohittir.online
 
 This project uses Angular CLI (version 10.0)
 
