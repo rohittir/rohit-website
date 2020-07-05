@@ -10,7 +10,7 @@ import { Covid19DataService } from './services/covid19.service';
 })
 export class Covid19Component implements OnInit {
 
-  public covid19Data = null;
+  public covid19Data = [];
 
   constructor(private _covid19Service: Covid19DataService) { }
 

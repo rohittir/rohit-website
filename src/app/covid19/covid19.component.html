@@ -1,5 +1,7 @@
-<h4 *ngIf="!covid19Data">Loading...</h4>
 <ng-container *ngIf="covid19Data">
+  <div class="loader">
+    <app-shared-loader *ngIf="!covid19Data.length"></app-shared-loader>
+  </div>
   <div style="overflow-x: auto">
     <table class="table table-sm table-striped">
       <thead class="thead-dark">
@@ -21,17 +23,17 @@
       <tbody>
         <tr *ngFor="let data of covid19Data">
           <th scope="row">{{data.country}}</th>
-          <td>{{data.cases}}</td>
-          <th>+{{data.todayCases}}</th>
-          <td>{{data.deaths}}</td>
-          <th>+{{data.todayDeaths}}</th>
-          <td>{{data.recovered}}</td>
-          <td>{{data.active}}</td>
-          <td>{{data.critical}}</td>
-          <td>{{data.casesPerOneMillion}}</td>
-          <td>{{data.deathsPerOneMillion}}</td>
-          <td>{{!data.totalTests ? 'N/A' : data.totalTests}}</td>
-          <td>{{!data.testsPerOneMillion ? 'N/A' : data.testsPerOneMillion}}</td>
+          <td>{{data.cases | currency : 'USD' : '' : '1.0-0' }}</td>
+          <th>+{{data.todayCases | currency : 'USD' : '' : '1.0-0' }}</th>
+          <td>{{data.deaths | currency : 'USD' : '' : '1.0-0' }}</td>
+          <th>+{{data.todayDeaths | currency : 'USD' : '' : '1.0-0' }}</th>
+          <td>{{data.recovered | currency : 'USD' : '' : '1.0-0' }}</td>
+          <td>{{data.active | currency : 'USD' : '' : '1.0-0' }}</td>
+          <td>{{data.critical | currency : 'USD' : '' : '1.0-0' }}</td>
+          <td>{{data.casesPerOneMillion | currency : 'USD' : '' : '1.0-0' }}</td>
+          <td>{{data.deathsPerOneMillion | currency : 'USD' : '' : '1.0-0' }}</td>
+          <td>{{!data.totalTests ? 'N/A' : (data.totalTests  | currency : 'USD' : '' : '1.0-0' )}}</td>
+          <td>{{!data.testsPerOneMillion ? 'N/A' : (data.testsPerOneMillion | currency : 'USD' : '' : '1.0-0' )}}</td>
         </tr>
       </tbody>
     </table>
