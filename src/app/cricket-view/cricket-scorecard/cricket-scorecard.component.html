@@ -14,7 +14,7 @@
             <h6>{{inngs.score}}/{{inngs.wkts}} ({{inngs.ovr}} Overs) <span *ngIf="inngs.$?.Target">Target: {{inngs.$?.Target}}</span></h6>
         </div>
 
-        <div style="overflow-x: auto">
+        <div class="table-responsive">
         <table class="table table-sm table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -51,7 +51,7 @@
         </table>
         </div>
 
-        <div style="overflow-x: auto">
+        <div class="table-responsive">
         <!-- <h6 *ngFor="let bowl of inngs.blTm">{{bowl.$.sName}}</h6> -->
         <table class="table table-sm table-striped">
             <thead class="thead-dark">
