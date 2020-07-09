@@ -22,7 +22,14 @@
       </thead>
       <tbody>
         <tr *ngFor="let data of covid19Data">
-          <th scope="row">{{data.country}}</th>
+          <th scope="row">
+            <ng-container *ngIf="data.country.toUpperCase() === 'USA' || data.country.toUpperCase() === 'INDIA'">
+              <a routerLink="{{'/covid-19/country/' + data.country.toUpperCase()}}">{{data.country}}</a>
+            </ng-container>
+            <ng-container *ngIf="data.country.toUpperCase() !== 'USA' && data.country.toUpperCase() !== 'INDIA'">
+              {{data.country}}
+            </ng-container>
+          </th>
           <td>{{data.cases | currency : 'USD' : '' : '1.0-0' }}</td>
           <th>+{{data.todayCases | currency : 'USD' : '' : '1.0-0' }}</th>
           <td>{{data.deaths | currency : 'USD' : '' : '1.0-0' }}</td>

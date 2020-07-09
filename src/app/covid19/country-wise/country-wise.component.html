@@ -1,0 +1,73 @@
+<ng-container *ngIf="covid19Data">
+    <div class="loader" *ngIf="!covid19Data.length">
+        <app-shared-loader></app-shared-loader>
+    </div>
+    <button class="btn btn-primary" style="margin-bottom: 10px" [routerLink]="['/covid-19']">
+        <span class="fa fa-chevron-circle-left"></span>
+        All Countries
+    </button>
+    <div style="overflow-x: auto">
+        <table class="table table-sm table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">State</th>
+                    <th *ngIf="country==='INDIA'" scope="col">District</th>
+                    <th scope="col">Cases</th>
+                    <th *ngIf="country!=='INDIA'" scope="col">Today's Cases</th>
+                    <th scope="col">Deaths</th>
+                    <th *ngIf="country!=='INDIA'" scope="col">Today's Deaths</th>
+                    <th scope="col">Recovered</th>
+                    <th scope="col">Active</th>
+                    <th *ngIf="country!=='INDIA'" scope="col">Critical</th>
+                    <th *ngIf="country!=='INDIA'" scope="col">Cases Per Million</th>
+                    <th *ngIf="country!=='INDIA'" scope="col">Deaths Per Million</th>
+                    <th *ngIf="country!=='INDIA'" scope="col">Total Tests</th>
+                    <th *ngIf="country!=='INDIA'" scope="col">Tests Per Million</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="country === 'USA'">
+                <tr *ngFor="let data of covid19Data">
+                    <th scope="row">{{data.state}}</th>
+                    <td>{{data.cases | currency : 'USD' : '' : '1.0-0' }}</td>
+                    <td>{{!data.todayCases ? 'N/A' : '+' + (data.todayCases | currency : 'USD' : '' : '1.0-0')}}</td>
+                    <td>{{!data.deaths ? 'N/A' : data.deaths | currency : 'USD' : '' : '1.0-0' }}</td>
+                    <td>{{!data.todayDeaths? 'N/A' : (data.todayDeaths | currency : 'USD' : '' : '1.0-0') }}</td>
+                    <td>N/A</td>
+                    <td>{{!data.active ? 'N/A' : data.active | currency : 'USD' : '' : '1.0-0' }}</td>
+                    <td>N/A</td>
+                    <td>{{!data.casesPerOneMillion ? 'N/A' : data.casesPerOneMillion | currency : 'USD' : '' : '1.0-0' }}
+                    </td>
+                    <td>{{!data.deathsPerOneMillion ? 'N/A' : data.deathsPerOneMillion | currency : 'USD' : '' : '1.0-0' }}
+                    </td>
+                    <td>{{!data.tests ? 'N/A' : (data.totalTests  | currency : 'USD' : '' : '1.0-0' )}}</td>
+                    <td>{{!data.testsPerOneMillion ? 'N/A' : (data.testsPerOneMillion | currency : 'USD' : '' : '1.0-0' )}}
+                    </td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="country === 'INDIA'">
+                <ng-container *ngFor="let data of covid19Data">
+                    <tr>
+                        <th scope="row" colspan="6">
+                            <a routerLink="{{'/covid-19/country/' + country}}" (click)="onExpand(data.state)">
+                                <i *ngIf="!expand[data.state.toLowerCase()]" class="fa fa-chevron-down" aria-hidden="true"></i>
+                                <i *ngIf="expand[data.state.toLowerCase()]" class="fa fa-chevron-up" aria-hidden="true"></i>
+                                {{data.state}}
+                            </a>
+                        </th>
+                    </tr>
+                    <ng-container *ngIf="expand[data.state.toLowerCase()]">
+                        <tr *ngFor="let district of data.districts">
+                            <th scope="row"></th>
+                            <th scope="row">{{district.name}}</th>
+                            <td>{{district.cases | currency : 'USD' : '' : '1.0-0' }}</td>
+                            <td>{{district.deaths | currency : 'USD' : '' : '1.0-0' }}</td>
+                            <td>{{district.recovered | currency : 'USD' : '' : '1.0-0' }}</td>
+                            <td>{{district.active | currency : 'USD' : '' : '1.0-0' }}</td>
+                        </tr>
+                    </ng-container>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+
+</ng-container>
