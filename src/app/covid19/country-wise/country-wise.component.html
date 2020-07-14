@@ -28,9 +28,9 @@
                 <tr *ngFor="let data of covid19Data">
                     <th scope="row">{{data.state}}</th>
                     <td>{{data.cases | currency : 'USD' : '' : '1.0-0' }}</td>
-                    <td>{{!data.todayCases ? 'N/A' : '+' + (data.todayCases | currency : 'USD' : '' : '1.0-0')}}</td>
+                    <th>+{{data.todayCases | currency : 'USD' : '' : '1.0-0'}}</th>
                     <td>{{!data.deaths ? 'N/A' : data.deaths | currency : 'USD' : '' : '1.0-0' }}</td>
-                    <td>{{!data.todayDeaths? 'N/A' : (data.todayDeaths | currency : 'USD' : '' : '1.0-0') }}</td>
+                    <th>+{{data.todayDeaths | currency : 'USD' : '' : '1.0-0'}}</th>
                     <td>N/A</td>
                     <td>{{!data.active ? 'N/A' : data.active | currency : 'USD' : '' : '1.0-0' }}</td>
                     <td>{{!data.casesPerOneMillion ? 'N/A' : data.casesPerOneMillion | currency : 'USD' : '' : '1.0-0' }}
@@ -82,6 +82,9 @@
                 </ng-container>
             </tbody>
         </table>
+        <div *ngIf="covid19Data.length > 0" class="mt-3">
+            Data Source: <a href="https://covid-19-apis.postman.com/" target="_blank">https://covid-19-apis.postman.com</a>
+        </div>
     </div>
 
 </ng-container>
