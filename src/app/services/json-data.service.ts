@@ -37,6 +37,11 @@ export class JSONDataService {
         return this._http.get(fileName);
     }
 
+    public readInspirationsDataFromJson(): Observable<any> {
+        const fileName = 'assets/data/inspirations-data.json';
+        return this._http.get(fileName);
+    }
+
     // public fetchUserData(): Observable<any> {
     //     return this._http.get(this._serverConfigService.serverUrl + '/api/profile/');
     // }

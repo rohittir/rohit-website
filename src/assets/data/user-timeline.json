@@ -3,15 +3,9 @@
 {
     "timeline": [
         {
-            "title": "Revamped this website",
-            "description": "This website is revamped by upgrading the Angular from version 4 to 7. Also created a new github repository.",
-            "date": "May 2019",
-            "links": [
-                {
-                    "name": "Source Code (GitHub)",
-                    "url": "https://github.com/rohittir/Personal-Website-2.0"
-                }
-            ]
+            "title": "Left Folio and Started working at Hobsons, Inc.",
+            "description": "Got a great opportunity to work as a senior Software Engineer at Hobsons (an EdTech company) using great technology stack around React, Node, MongoDB and AWS Serverless.",
+            "date": "July 2019"
         },
         {
             "title": "Worked on design and development of native ios mobile application using NativeScript for Angular",
@@ -35,7 +29,7 @@
             "links": [
                 {
                     "name": "Source Code (GitHub)",
-                    "url": "https://github.com/rohittir/Angular-PersonalWebsite"
+                    "url": "https://github.com/rohittir/rohit-website"
                 }
             ]
         },

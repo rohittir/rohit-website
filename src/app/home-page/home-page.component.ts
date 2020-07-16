@@ -34,6 +34,7 @@ export class HomePageComponent implements OnInit {
 
     ngOnInit() {
         this.initData();
+        window.scrollTo(0, 0);
     }
 
 
@@ -56,6 +57,24 @@ export class HomePageComponent implements OnInit {
         } else {
             this.userProfile = userProfile.userData.profile;
         }
+
+        this._jsonDataService.readInspirationsDataFromJson()
+            .pipe(
+                catchError((err: any) => {
+                    console.error(err);
+                    return err;
+                })
+            ).subscribe((res: any) => {
+                if (res && res.inspirations && res.inspirations.length > 0) {
+                    const day = new Date().getDay();
+                    const index = (day - 1) % res.inspirations.length;
+                    if (index < res.inspirations.length) {
+                        this.inspirationData = res.inspirations[index];
+                    } else {
+                        this.inspirationData = res.inspirations[0];
+                    }
+                }
+            });
     }
 }
 

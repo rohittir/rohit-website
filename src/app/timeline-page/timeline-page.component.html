@@ -3,6 +3,7 @@
 
 <div class="row width-animation" >
     <div class="col-12">
+        <div class="info-text">Click on the box or dot to know more details.</div>
         <ul class="timeline">
             <li class="timeline-item" *ngFor="let timelineItem of userTimelineData?.timeline; let i = index" style="cursor: pointer">
                 <div class="timeline-badge {{showAlways[i]? 'primary':''}}" (click)="showAlways[i]=!showAlways[i]"></div>
