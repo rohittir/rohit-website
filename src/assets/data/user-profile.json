@@ -20,10 +20,11 @@
             },
             "abstract": [
                 "Hi there!! Welcome to my portfolio. Here you'll find all the details of my experience, skills, education and some personal projects. You can use the navigation on the top to jump to each section of this page.",
-                "I'm a MEAN stack software developer with expertise in the front end design and development using Angular 2+, Redux, Node.js, GraphQL and the stack around it. ",
-                "I have been recently working on the front end architecture design for an online Robo advisor investment product. It is a highly customizable white labelled architecture that provides run-time branding flexibility.",
-                "It has been a long 8.5 years of journey in the software development during which the technologies kept changing and so my knwoeldge and curiosity of learning and putting them into practice.",
-                "Having experties in Object Oriented prohramming language, it became easy for me to learn the new stack quickly and experience helped me using them for the right requirements/features.",
+                "I'm a MEAN/MERN stack software developer with expertise in the front end design and development using React, Angular 2+, Redux, Node.js, GraphQL and the stack around it. ",
+                "I have been recently working on full stack design and development of web based software products in Education space.",
+                "In the past, I have worked on the front end architecture design for an online Robo advisor investment product. It is a highly customizable white labelled architecture that provides run-time branding flexibility.",
+                "It has been a long 8.5 years of journey in the software development during which the technologies kept changing and so my knowledge and curiosity of learning and putting them into practice.",
+                "Having experties in Object Oriented programming language, my journey to learn the new stack was smooth and quick and experience helped me using them for the right requirements/features.",
                 "Please go through my complete profile below and download my resume using the button on the top right corner of this section."
             ]
         },
@@ -81,13 +82,16 @@
                 "Gulp",
                 "Angular-CLI",
                 "REST Services and API",
-                "AWS S3 Storage",
-                "AWS EC2 Container",
+                "AWS S3",
+                "AWS EC2",
                 "AWS CloudFront",
                 "AWS DynamoDB",
                 "ServerLess Architecture",
                 "AWS API Gateway",
-                "AWS Lambda",
+                "AWS Lambda Functions",
+                "AWS Cognito",
+                "AWS Cloudformation Template",
+                "AWS Cloud Developer Associate Certification",
                 "D3.js",
                 "Agile/Sprint",
                 "VS Code",
@@ -146,16 +150,16 @@
                         "Work in Agile to collaborate with product team, design team, QA and operations and involve throughtout SDLC process."
                     ],
                     "detailedInfo": [
-                        "Worked closely with the product team, project manager and UX team to design and develop web-based enterprise software products in education space i.e. Naviance and Intersect.",
-                        "Worked on design and development of front-end and back-end software components using technologies and frameworks that include React, Redux, ES6, Typescript, Node.js, Express.js, GraphQL, MongoDB, and AWS.",
-                        "Developed by test driven and behavior driven development approach using JavaScript testing frameworks and libraries that include Jasmine, Karma, Protractor, Chai and Cypress.",
-                        "Designed and implemented back-end services using GraphQL schemas and mutation in Node.js and consumed those in front-end React based components through Apollo client with proper caching in place.",
+                        "Worked closely with the product team, scrum master and Project Manager to design and develop web-based enterprise software products in education space i.e. Naviance and Intersect by Hobsons.",
+                        "Worked on design and development of front-end and back-end software components using technologies and frameworks that include Javascript, React, Redux, Typescript, Node.js, Express.js, GraphQL, MongoDB, and AWS.",
+                        "Implemented software components using test driven and behavior driven development techniques using JavaScript testing frameworks and libraries that include Jasmine, Karma, Protractor, Chai, Sinon and Cypress.",
+                        "Designed and implemented back-end services using GraphQL schemas and integrated with MongoDB, AWS ElasticSearch etc. in Node.js",
                         "Implemented React based front-end components using ES6, Semantic-ui and other JavaScript libraries.",
                         "Implemented complex MongoDB queries and algorithms to achieve complex student and college matching requirements.",
-                        "Led a technical team of 5 engineers to design and develop a major part of the product to build from scratch."
+                        "Worked with a team of 7 Software Engineers and QAs following Agile practices with 2 week Sprints."
                     ],
                     "technologies": [
-                        "Angular 4 and 6", "Typescript", "NativeScript", "Angular Material", "Node.js", "GraphQL", "Redux", "RxJs", "SASS", "CSS", "HTML", "AmCharts.js", "Agile", "Karma", "Jasmine", "Webpack", "Gulp", "JIRA"
+                        "React", "Node.js", "Javascript", "Typescript", "MongoDB", "Express", "GraphQL", "Redux", "AWS Cloud", "AWS Serverless", "MicroComponent Architecture", "CSS", "HTML", "Agile", "Karma", "Jasmine", "Sinon", "Chai", "Webpack", "JIRA", "GitHub"
                     ]
                 },
                 {
