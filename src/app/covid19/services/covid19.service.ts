@@ -7,13 +7,12 @@ import { Observable } from 'rxjs';
 export class Covid19DataService {
 
     private serverUrl = 'https://corona.lmao.ninja/v2';
-    private apiGatewayUrl = 'https://dmdk51ksqe.execute-api.us-east-1.amazonaws.com/';
 
     constructor(private _http: HttpClient) {
     }
 
     public getAllCountryCases(): Observable<any> {
-        return this._http.get(`${this.apiGatewayUrl}/countries`);
+        return this._http.get(`https://coronavirus-19-api.herokuapp.com/countries`);
     }
 
     public getCountryCases(country: string): Observable<any> {
