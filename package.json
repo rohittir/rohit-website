@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build-prod": "ng build --aot true --prod --base-href='/'",
+    "build-and-deploy": "npm run build-prod && npm run deploy",
     "deploy": "aws s3 cp ./dist/Rohit-Website/ s3://www.rohittir.online --recursive",
     "test": "ng test",
     "lint": "ng lint",
