@@ -82,6 +82,30 @@
     </div>
 </div>
 <br>
+<div id="certifications" class="card bottom-animation" >
+    <div class="card-header">
+        <strong>Certifications</strong>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12" *ngFor="let certification of certificationList">
+                <div class="card certification-card">
+                    <div class="card-header">
+                        <strong>{{certification.name}}</strong>
+                    </div>
+                    <div class="card-body certification-card-body">
+                        <a href="{{certification.url}}" target="_blank"><img class="float-left" src="{{certification.logo}}"></a>
+                        <h6 class="card-text">Issued by {{certification.organization}}</h6>
+                        <p class="card-text">{{(certification.endDate)? certification.startDate + ' - ' + certification.endDate : 'Certified on ' + certification.startDate}}</p>
+                        <h6 class="card-text">{{certification.details}}</h6>
+                        <a href="{{certification.url}}" target="_blank" class="btn btn-primary">More Details <i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
 <div id="projects" class="card">
     <div class="card-header">
         <strong>Personal Projects and Developments</strong>

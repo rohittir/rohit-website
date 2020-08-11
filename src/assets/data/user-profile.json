@@ -272,6 +272,18 @@
             ]
         },
 
+        "certifications": [
+            {
+                "name": "AWS Certified Developer – Associate",
+                "logo": "assets/images/aws-developer-associate.jpg",
+                "url": "https://www.youracclaim.com/badges/8ba14022-8614-403c-83df-3dbd60bd4d6c/linked_in",
+                "organization": "Amazon Web Services Training and Certification",
+                "endDate": "8 August 2023",
+                "startDate": "8 August 2020",
+                "details": "Earners of this certification have a comprehensive understanding of application life-cycle management. They demonstrated proficiency in writing applications with AWS service APIs, AWS CLI, and SDKs; using containers; and deploying with a CI/CD pipeline. Badge owners are able to develop, deploy, and debug cloud-based applications that follow AWS best practices."
+            }
+        ],
+
         "academic": {
             "projects": [
                 {

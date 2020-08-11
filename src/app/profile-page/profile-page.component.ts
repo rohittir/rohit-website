@@ -29,6 +29,7 @@ export class ProfilePageComponent implements OnInit {
     public schoolList = null;
     public industryList = null;
     public academicProjectList = null;
+    public certificationList = null;
     //
     // LIFECYCLE
     //
@@ -72,6 +73,7 @@ export class ProfilePageComponent implements OnInit {
         this.schoolList = this.jsonData.userData.education.schools;
         this.industryList = this.jsonData.userData.experience.industries;
         this.academicProjectList = this.jsonData.userData.academic.projects;
+        this.certificationList = this.jsonData.userData.certifications;
     }
 
     public handleExperienceClick(industryLabel: string): void {
