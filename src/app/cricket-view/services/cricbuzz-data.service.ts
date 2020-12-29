@@ -7,7 +7,7 @@ import { SERVER_CONFIG } from 'application-config/server-config';
 @Injectable()
 export class CricBuzzDataService {
 
-    private serverUrl = SERVER_CONFIG().host + ':' + SERVER_CONFIG().port;
+    private serverUrl = SERVER_CONFIG().serverUrl || (SERVER_CONFIG().host + ':' + SERVER_CONFIG().port);
 
     constructor(private _http: HttpClient) {
         console.log('SERVER_CONFIG:::', SERVER_CONFIG());
@@ -18,7 +18,7 @@ export class CricBuzzDataService {
         if (SERVER_CONFIG().isLocalFilesDataRead) {
             return this._http.get('assets/cricbuzz-data/livematches.json');
         } else {
-            return this._http.get(`${this.serverUrl}/api/cricbuzz/livematches`);
+            return this._http.get(`${this.serverUrl}/liveMatches`);
         }
     }
 
@@ -26,7 +26,7 @@ export class CricBuzzDataService {
         if (SERVER_CONFIG().isLocalFilesDataRead) {
             return this._http.get(`assets/cricbuzz-data/${matchId}/details.json`);
         } else {
-            return this._http.get(`${this.serverUrl}/api/cricbuzz/match/${matchId}`);
+            return this._http.get(`${this.serverUrl}/match/${matchId}`);
         }
     }
 
@@ -34,7 +34,7 @@ export class CricBuzzDataService {
         if (SERVER_CONFIG().isLocalFilesDataRead) {
             return this._http.get(`assets/cricbuzz-data/${matchId}/scorecard.json`);
         } else {
-            return this._http.get(`${this.serverUrl}/api/cricbuzz/scorecard/${matchId}`);
+            return this._http.get(`${this.serverUrl}/scorecard/${matchId}`);
         }
     }
 
@@ -42,7 +42,7 @@ export class CricBuzzDataService {
         if (SERVER_CONFIG().isLocalFilesDataRead) {
             return this._http.get(`assets/cricbuzz-data/${matchId}/commentary.json`);
         } else {
-            return this._http.get(`${this.serverUrl}/api/cricbuzz/commentary/${matchId}`);
+            return this._http.get(`${this.serverUrl}/commentary/${matchId}`);
         }
     }
 
@@ -50,7 +50,7 @@ export class CricBuzzDataService {
         if (SERVER_CONFIG().isLocalFilesDataRead) {
             return this._http.get(`assets/cricbuzz-data/${matchId}/players.json`);
         } else {
-            return this._http.get(`${this.serverUrl}/api/cricbuzz/players/${matchId}`);
+            return this._http.get(`${this.serverUrl}/players/${matchId}`);
         }
     }
 
